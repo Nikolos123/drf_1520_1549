@@ -14,7 +14,7 @@ from .serializers import AuthorModelSerializer, BiographyModelSerializer,BookMod
 # def test(request):
 
 class AuthorModelViewSet(ModelViewSet):
-    renderer_classes = [AdminRenderer]
+    # renderer_classes = [AdminRenderer]
     queryset = Author.objects.all()
     serializer_class = AuthorModelSerializer
 

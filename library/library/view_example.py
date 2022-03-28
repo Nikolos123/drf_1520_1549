@@ -156,7 +156,7 @@ class BookDjangoFilterViewSet(ModelViewSet):
 
 # # # #PAGINATOR
 class BookLimitOffsetPagination(LimitOffsetPagination):
-   default_limit = 1
+   default_limit = 10
 # # # # #
 # # # # #
 class BookLimitOffsetPaginatonViewSet(ModelViewSet):

@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 
 const AuthorItem = ({author}) => {
 
@@ -7,7 +7,7 @@ const AuthorItem = ({author}) => {
         <tr>
 
             <td>
-                {author.first_name}
+                <Link to={`/author/${author.id}`}>{author.first_name}</Link>
             </td>
             <td>
                 {author.last_name}

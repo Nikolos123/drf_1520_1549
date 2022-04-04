@@ -35,6 +35,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:39277',
     'http://127.0.0.1:3000',
     'http://127.0.0.1:39277',
+
 ]
 
 # Application definition
@@ -51,7 +52,7 @@ INSTALLED_APPS = [
     'authors',
     'django_filters',
     'rest_framework.authtoken',
-
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 MIDDLEWARE = [
@@ -139,7 +140,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# from rest_framework.permissions import DjangoModelPermissionsOrAnonReadOnly
+# from rest_framework.permissions import IsAuthenticated
 # rest_framework
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES':[
@@ -147,13 +148,14 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
     'DEFAULT_PERMISSION_CLASSES':[
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.IsAuthenticated'
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES':[
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 
     # 'DEFAULT_FILTER_BACKENDS':['django_filters.rest_framework.DjangoFilterBackend'],

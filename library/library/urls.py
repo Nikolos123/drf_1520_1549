@@ -10,8 +10,8 @@ Class-based views
     1. Add an import:  from other_app.views import Home
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+    1. Import the include() function: from django.urls.py import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls.py'))
 """
 from django.contrib import admin
 from django.urls import path, include
@@ -21,6 +21,9 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from authors.views import AuthorModelViewSet,BookModelViewSet,BiographyModelViewSet
 from rest_framework.authtoken import  views
+
+from userapp.views import UserListApiView
+
 router = DefaultRouter()
 router.register('authors',AuthorModelViewSet)
 router.register('books',BookModelViewSet)
@@ -33,5 +36,11 @@ urlpatterns = [
     path('api-token-auth/', views.obtain_auth_token),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+
+    # path('api/<str:version>/users/',UserListApiView.as_view()),
+    # path('api/users/v1/',include('userapp.urls',namespace='v1')),
+    # path('api/users/v2/',include('userapp.urls',namespace='v2')),
+
 
 ]

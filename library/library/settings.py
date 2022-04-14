@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 
     'userapp',
     'drf_yasg',
+    'graphene_django'
 ]
 
 MIDDLEWARE = [
@@ -63,7 +64,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -170,3 +171,7 @@ REST_FRAMEWORK = {
     'DEFAULT_VERSIONING_CLASS' : 'rest_framework.versioning.AcceptHeaderVersioning',
 }
 # http://v1.test.ru
+
+GRAPHENE = {
+    'SCHEMA':'library.schema.schema'
+}

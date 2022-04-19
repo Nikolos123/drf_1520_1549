@@ -1,7 +1,8 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 
-const BookItem = ({book}) => {
+const BookItem = ({book,deleteBook}) => {
 
     return (
         <tr>
@@ -15,25 +16,32 @@ const BookItem = ({book}) => {
             <td>
                 {book.authors}
             </td>
-
+            <td>
+                <button onClick={()=> deleteBook(book.id)} type="button">Delete</button>
+            </td>
         </tr>
     )
 }
 
-const  BookList = ({books}) => {
+const BookList = ({books,deleteBook}) => {
 
-    return(
+    return (
         <table>
             <th>
                 ID
             </th>
-               <th>
+            <th>
                 Name
             </th>
-               <th>
+            <th>
                 Author
             </th>
-            {books.map((book) => <BookItem book={book}/> )}
+            <th>
+
+            </th>
+            {books.map((book) => <BookItem book={book} deleteBook={deleteBook}/>)}
+
+            <Link to='/books/create'>Create</Link>
         </table>
     )
 }

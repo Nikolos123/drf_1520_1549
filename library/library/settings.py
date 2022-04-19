@@ -28,14 +28,13 @@ SECRET_KEY = 'django-insecure-yc@ux)-muk6t)2l-b)ied7-5-o#gxhd09q9xvfun8qrxk8o%54
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'http://localhost:39277',
+    'http://localhost:34875',
     'http://127.0.0.1:3000',
-    'http://127.0.0.1:39277',
-
+    'http://127.0.0.1:34875',
 ]
 
 # Application definition
@@ -161,6 +160,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+
+
 
     # 'DEFAULT_FILTER_BACKENDS':['django_filters.rest_framework.DjangoFilterBackend'],
     # 'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',

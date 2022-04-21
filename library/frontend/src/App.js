@@ -24,7 +24,7 @@ class App extends React.Component {
     createBook(name,author){
         console.log(name,author)
         const headers = this.get_headers()
-        const data = {name:name,authors:[author]}
+        const data = {name:name,authors:author}
         // console.log(data)
         axios.post(`http://127.0.0.1:8005/api/books/`,data,{headers}).then(
 

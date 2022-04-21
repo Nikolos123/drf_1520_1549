@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 from graphene_django.views import GraphQLView
 from rest_framework import permissions
 
@@ -66,7 +67,8 @@ urlpatterns = [
     # path('api/users/v1/',include('userapp.urls',namespace='v1')),
     # path('api/users/v2/',include('userapp.urls',namespace='v2')),
 
-    path('graphql/',GraphQLView.as_view(graphiql=True))
+    path('graphql/',GraphQLView.as_view(graphiql=True)),
+    path('',TemplateView.as_view(template_name='index.html'))
 
 
 ]
